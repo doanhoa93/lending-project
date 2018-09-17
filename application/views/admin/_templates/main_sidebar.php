@@ -47,19 +47,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
-                        <li class="<?=active_link_controller('borrowers')?>">
-                            <a href="<?php echo site_url('admin/borrowers'); ?>">
-                                <i class="fa fa-smile-o" style="color:#FF5400"></i> <span>Borrowers</span>
+                        <li class="treeview <?=active_link_controller('customers')?>">
+                            <a href="#">
+                                <i class="fa fa-users" style="color:#FF5400"></i>
+                                <span>Customers</span>
+                                <i class="fa fa-angle-left pull-right"></i>
                             </a>
-                        </li>
-                        <li class="<?=active_link_controller('investers')?>">
-                            <a href="<?php echo site_url('admin/investers'); ?>">
-                                <i class="fa fa-smile-o" style="color:#FF5400"></i> <span>Investers</span>
-                            </a>
+                            <ul class="treeview-menu">
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/borrowers'); ?>"><span>Borrowers</span></a></li>
+                                <li class="<?=active_link_function('interfaces')?>"><a href="<?php echo site_url('admin/investers'); ?>"><span>Investers</span></a></li>
+                            </ul>
                         </li>
                         <li class="<?=active_link_controller('users')?>">
                             <a href="<?php echo site_url('admin/users'); ?>">
-                                <i class="fa fa-user" style="color:#FF5400"></i> <span><?php echo lang('menu_users'); ?></span>
+                                <i class="fa fa-user" style="color:#125acd"></i> <span><?php echo lang('menu_users'); ?></span>
                             </a>
                         </li>
                         <li class="<?=active_link_controller('groups')?>">
