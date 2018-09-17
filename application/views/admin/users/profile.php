@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-6">
                              <div class="box">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">xxxx</h3>
+                                    <h3 class="box-title">Information</h3>
                                 </div>
                                 <div class="box-body">
                                     <table class="table table-striped table-hover">
@@ -60,14 +60,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <th><?php echo lang('users_phone'); ?></th>
                                                 <td><?php echo $user->phone; ?></td>
                                             </tr>
-                                            <tr>
-                                                <th><?php echo lang('users_groups'); ?></th>
+                                            <!--<tr>
+                                                <th><?php /*echo lang('users_groups'); */?></th>
                                                 <td>
-<?php foreach ($user->groups as $group):?>
-                                                    <?php echo '<span class="label" style="background:'.$group->bgcolor.'">'.htmlspecialchars($group->name, ENT_QUOTES, 'UTF-8').'</span>'; ?>
-<?php endforeach?>
+<?php /*foreach ($user->groups as $group):*/?>
+                                                    <?php /*echo '<span class="label" style="background:'.$group->bgcolor.'">'.htmlspecialchars($group->name, ENT_QUOTES, 'UTF-8').'</span>'; */?>
+<?php /*endforeach*/?>
                                                 </td>
-                                            </tr>
+                                            </tr>-->
 <?php endforeach;?>
                                         </tbody>
                                     </table>
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-6">
                              <div class="box">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title">xxxx</h3>
+                                    <h3 class="box-title">Avatar</h3>
                                 </div>
                                 <div class="box-body">
 

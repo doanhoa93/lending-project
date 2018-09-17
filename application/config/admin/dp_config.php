@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['title']      = 'Lending-Manager';
-$config['title_mini'] = 'LT';
-$config['title_lg']   = 'LTE';
+$config['title_mini'] = 'LD';
+$config['title_lg']   = 'Lending';
 
 
 
