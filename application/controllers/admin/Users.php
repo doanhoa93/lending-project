@@ -60,18 +60,19 @@ class Users extends Admin_Controller {
 		$this->form_validation->set_rules('company', 'lang:users_company', 'required');
 		$this->form_validation->set_rules('password', 'lang:users_password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
 		$this->form_validation->set_rules('password_confirm', 'lang:users_password_confirm', 'required');
+        $this->form_validation->set_rules('usertype', 'lang:users_usertype', 'required');
 
 		if ($this->form_validation->run() == TRUE)
 		{
 			$username = strtolower($this->input->post('first_name')) . ' ' . strtolower($this->input->post('last_name'));
 			$email    = strtolower($this->input->post('email'));
 			$password = $this->input->post('password');
-
 			$additional_data = array(
 				'first_name' => $this->input->post('first_name'),
 				'last_name'  => $this->input->post('last_name'),
 				'company'    => $this->input->post('company'),
 				'phone'      => $this->input->post('phone'),
+                'usertype'   => $this->input->post('usertype'),
 			);
 		}
 
@@ -134,7 +135,13 @@ class Users extends Admin_Controller {
                 'class' => 'form-control',
 				'value' => $this->form_validation->set_value('password_confirm'),
 			);
-
+            $this->data['usertype'] = array(
+                'name'  => 'usertype',
+                'id'    => 'invest',
+                'type'  => 'checkbox',
+                'class' => 'form-control',
+                'value' => $this->form_validation->set_value('usertype'),
+            );
             /* Load Template */
             $this->template->admin_render('admin/users/create', $this->data);
         }

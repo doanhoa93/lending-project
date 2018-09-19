@@ -87,6 +87,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
 <?php endif ?>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label"><?php echo lang('users_member_of_groups');?></label>
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="usertype" id="borrow" value="0" <?php echo $user->usertype == 0 ? 'checked' : ''; ?>>
+                                                    Borrow
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="usertype" id="invest" value="1" <?php echo $user->usertype == 1 ? 'checked' : ''; ?>>
+                                                    Invest
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <?php echo form_hidden('id', $user->id);?>

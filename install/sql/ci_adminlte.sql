@@ -24,6 +24,126 @@ SET time_zone = "+00:00";
 -- Structure de la table `admin_preferences`
 --
 
+CREATE TABLE IF NOT EXISTS `app_config` (
+  `key` varchar(255) NOT NULL,
+  `value` varchar(255) NOT NULL,
+  PRIMARY KEY (`key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `menus` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `loans` (
+  `loan_id` int(11) NOT NULL AUTO_INCREMENT,
+  `account` varchar(50) NOT NULL,
+  `description` varchar(300) NOT NULL,
+  `remarks` varchar(300) NOT NULL,
+  `loan_type_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `loan_amount` decimal(10,2) NOT NULL,
+  `loan_balance` decimal(10,2) NOT NULL,
+  `loan_status` enum('pending','approved','on going','paid') NOT NULL,
+  `loan_agent_id` int(11) NOT NULL,
+  `loan_approved_by_id` int(11) NOT NULL,
+  `loan_reviewed_by_id` int(11) NOT NULL,
+  `loan_applied_date` int(11) NOT NULL,
+  `loan_payment_date` int(11) NOT NULL,
+  `misc_fees` text NOT NULL,
+  `delete_flag` int(11) NOT NULL,
+  `payment_scheds` text NOT NULL,
+  PRIMARY KEY (`loan_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `loan_payments` (
+  `loan_payment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `account` varchar(50) NOT NULL DEFAULT '0',
+  `loan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `balance_amount` decimal(10,2) NOT NULL,
+  `paid_amount` decimal(10,2) NOT NULL,
+  `teller_id` int(11) NOT NULL,
+  `date_paid` int(11) NOT NULL,
+  `date_modified` int(11) NOT NULL,
+  `modified_by` int(11) NOT NULL,
+  `remarks` varchar(2000) NOT NULL,
+  `delete_flag` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`loan_payment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `payment_schedules` (
+  `payment_schedule_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `recurrence` int(11) NOT NULL DEFAULT '0',
+  `delete_flag` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`payment_schedule_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS `loan_types` (
+  `loan_type_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `term` int(11) NOT NULL,
+  `term_period_type` varchar(50) NOT NULL,
+  `payment_schedule` varchar(50) NOT NULL,
+  `percent_charge1` decimal(10,2) NOT NULL,
+  `period_charge1` int(11) NOT NULL,
+  `period_type1` varchar(50) NOT NULL,
+  `percent_charge2` decimal(10,2) NOT NULL,
+  `period_charge2` int(11) NOT NULL,
+  `period_type2` varchar(50) NOT NULL,
+  `percent_charge3` decimal(10,2) NOT NULL,
+  `period_charge3` int(11) NOT NULL,
+  `period_type3` varchar(50) NOT NULL,
+  `percent_charge4` decimal(10,2) NOT NULL,
+  `period_charge4` int(11) NOT NULL,
+  `period_type4` varchar(50) NOT NULL,
+  `percent_charge5` decimal(10,2) NOT NULL,
+  `period_charge5` int(11) NOT NULL,
+  `period_type5` varchar(50) NOT NULL,
+  `percent_charge6` decimal(10,2) NOT NULL,
+  `period_charge6` int(11) NOT NULL,
+  `period_type6` varchar(50) NOT NULL,
+  `percent_charge7` decimal(10,2) NOT NULL,
+  `period_charge7` int(11) NOT NULL,
+  `period_type7` varchar(50) NOT NULL,
+  `percent_charge8` decimal(10,2) NOT NULL,
+  `period_charge8` int(11) NOT NULL,
+  `period_type8` varchar(50) NOT NULL,
+  `percent_charge9` decimal(10,2) NOT NULL,
+  `period_charge9` int(11) NOT NULL,
+  `period_type9` varchar(50) NOT NULL,
+  `percent_charge10` decimal(10,2) NOT NULL,
+  `period_charge10` int(11) NOT NULL,
+  `period_type10` varchar(50) NOT NULL,
+  `added_by` int(11) NOT NULL,
+  `date_added` int(11) NOT NULL,
+  `modified_by` int(11) NOT NULL,
+  `date_modified` int(11) NOT NULL,
+  PRIMARY KEY (`loan_type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `messages` (
+  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender_id` int(11) NOT NULL DEFAULT '0',
+  `recipient_id` int(11) NOT NULL DEFAULT '0',
+  `mark_as_read` tinyint(1) NOT NULL DEFAULT '0',
+  `header` varchar(300) NOT NULL,
+  `body` text NOT NULL,
+  `send_date` date NOT NULL,
+  `receive_date` date NOT NULL,
+  `sender_delete_flag` tinyint(4) NOT NULL DEFAULT '0',
+  `recipient_delete_flag` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`message_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
 CREATE TABLE IF NOT EXISTS `admin_preferences` (
   `id` tinyint(1) NOT NULL AUTO_INCREMENT,
   `user_panel` tinyint(1) NOT NULL DEFAULT '0',
@@ -156,6 +276,26 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (1, 1, 1);
 
+CREATE TABLE IF NOT EXISTS `wallets` (
+  `wallet_id` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` decimal(10,2) NOT NULL,
+  `descriptions` varchar(200) NOT NULL,
+  `wallet_type` enum('debit','credit','transfer') NOT NULL,
+  `trans_date` int(11) NOT NULL,
+  `added_by` int(11) NOT NULL,
+  `transfer_to` int(11) NOT NULL,
+  PRIMARY KEY (`wallet_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE IF NOT EXISTS `sessions` (
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Contraintes pour les tables exportées
 --

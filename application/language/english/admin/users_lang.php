@@ -25,6 +25,7 @@ $lang['users_ip_address']          = 'IP address';
 $lang['users_last_login']          = 'Last login';
 $lang['users_lastname']            = 'Last name';
 $lang['users_member_of_groups']    = 'Member of groups';
+$lang['user_type']                 = 'User type';
 $lang['users_password']            = 'Password';
 $lang['users_password_confirm']    = 'Password confirm';
 $lang['users_phone']               = 'Phone';
