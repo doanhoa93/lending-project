@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-md-3 col-sm-6 col-xs-12  col wow fadeInUp" data-wow-delay=".1s">
                     <div class="footer-widget footer-logo">
-                        <h1>Martxa</h1>
+                        <h1>Lending</h1>
                         <p>Lor separat existentie es un myth. Por scientie, musica, sport etc, litot  usa li sam larLor separat existentie es un myth existentie.</p>
                         <ul>
                             <li><i class="fa fa-phone"></i> +455 5475 6645</li>

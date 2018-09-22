@@ -18,6 +18,7 @@ class MY_Controller extends CI_Controller
         $this->load->model('common/prefs_model');
 
         /* Data */
+        $this->data['title']       = $this->config->item('title');
         $this->data['lang']           = element($this->config->item('language'), $this->config->item('language_abbr'));
         $this->data['charset']        = $this->config->item('charset');
         $this->data['frameworks_dir'] = $this->config->item('frameworks_dir');
@@ -71,6 +72,7 @@ class Admin_Controller extends MY_Controller
 
         if ( ! $this->ion_auth->logged_in() OR ! $this->ion_auth->is_admin())
         {
+            $this->data['title']       = $this->config->item('title');
             redirect('auth/login', 'refresh');
         }
         else

@@ -44,7 +44,7 @@ header('Vary: Accept-Encoding');
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-8 col-md-offset-2">
-                                        <h2>Welcome to our Martxa</h2>
+                                        <h2>Welcome to our Lending</h2>
                                         <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                         <ul>
                                             <li><a href="#">Read More</a></li>
@@ -65,7 +65,7 @@ header('Vary: Accept-Encoding');
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-8 col-md-offset-2">
-                                        <h2>Hello i am Martxa</h2>
+                                        <h2>Hello i am Lending</h2>
                                         <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                         <ul>
                                             <li><a href="#">Get Started</a></li>
