@@ -1654,6 +1654,20 @@ class Ion_auth_model extends CI_Model
 		                ->get($this->tables['users_groups']);
 	}
 
+    public function get_users_groups_by_type($id = FALSE)
+    {
+        $this->trigger_events('get_users_group');
+
+        // if no id was passed use the current users id
+        $id || $id = $this->session->userdata('user_id');
+
+        return $this->db->select($this->tables['users_groups'].'.'.$this->join['groups'].' as id, '.$this->tables['groups'].'.name, '.$this->tables['groups'].'.description')
+            ->where($this->tables['users_groups'].'.'.$this->join['users'], $id)
+            ->and()
+            ->join($this->tables['groups'], $this->tables['users_groups'].'.'.$this->join['groups'].'='.$this->tables['groups'].'.id')
+            ->get($this->tables['users_groups']);
+    }
+
 	/**
 	 * add_to_group
 	 *

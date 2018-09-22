@@ -36,6 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/assets/css/styles.css'); ?>">
         <!-- responsive css -->
         <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/assets/css/responsive.css'); ?>">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.min.css">
         <!-- modernizr css -->
         <script src="<?php echo base_url($frameworks_dir . '/assets/js/vendor/modernizr-2.8.3.min.js'); ?>"></script>
 <?php if ($mobile === FALSE): ?>
@@ -86,12 +88,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <p>Personal loans up to $40,000</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-4 col-xs-12">
-                        <div class="header-top-right text-right">
+                    <div class="col-md-6 col-sm-4 col-xs-12"  ng-app="app">
+                        <div class="header-top-right text-right" ng-controller="AppCtrl as ctrl">
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a onclick="login()" style="cursor: pointer"><i class="fa fa-user"></i> Login</a></li>
+                                <li><a href="<?php echo site_url('/register'); ?>"><i class="fa fa-user-plus"></i> Register</a></li>
+
+                                <div class="example">
+                                    <!--<button id="b2">A title with a text under</button>
+                                    <button id="b3">A success message!</button>
+                                    <button id="b4">A warning message, with a function attached to the "Confirm"-button...</button>
+                                    <button id="b5">... and by passing a parameter, you can execute something else for "Cancel".</button>
+                                    <button id="b6">A message with a custom icon</button>-->
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -158,7 +167,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </li>
                                 <li class="<?php echo ($parent_menu == 'about')? 'active' : '' ?>"><a href="<?php echo site_url('/about'); ?>">About</a></li>
                                 <li class="<?php echo ($parent_menu == 'contact')? 'active' : '' ?>"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                                <li class="<?php echo ($parent_menu == 'userhome')? 'active' : '' ?>"><a href="#">Borrow <i class="fa fa-angle-down"></i></a>
+                                <li class="<?php echo ($parent_menu == 'borrow')? 'active' : '' ?>"><a href="#">Borrow <i class="fa fa-angle-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="blog.html">Blog page</a></li>
                                         <li><a href="blog2.html">Blog Two column</a></li>
@@ -168,7 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <li><a href="blog-post.html">Blog Post </a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Invest <i class="fa fa-angle-down"></i></a>
+                                <li class="<?php echo ($parent_menu == 'invest')? 'active' : '' ?>"><a href="#">Invest <i class="fa fa-angle-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="blog.html">Blog page</a></li>
                                         <li><a href="blog2.html">Blog Two column</a></li>

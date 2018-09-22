@@ -68,8 +68,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </footer>
-
-
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/vendor/jquery-1.12.4.min.js'); ?>"></script>
 <!-- bootstrap js -->
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/bootstrap.min.js'); ?>"></script>
@@ -95,17 +93,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/plugins.js'); ?>"></script>
 <!-- main js -->
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/scripts.js'); ?>"></script>
-        <!--<script src="<?php /*echo base_url($frameworks_dir . '/jquery/jquery.min.js'); */?>"></script>
-        <script src="<?php /*echo base_url($frameworks_dir . '/bootstrap/js/bootstrap.min.js'); */?>"></script>
-        <script src="<?php /*echo base_url($plugins_dir . '/icheck/js/icheck.min.js'); */?>"></script>
-        <script>
-            $(function(){
-                $('input').iCheck({
-                    checkboxClass: 'icheckbox_square-blue',
-                    radioClass: 'iradio_square-blue',
-                    increaseArea: '20%'
-                });
-            });
-        </script>-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<script type="text/javascript">
+    function login() {
+        swal({
+            showCancelButton: false,
+            showConfirmButton: false,
+            html:'<div class="contact-area" style="margin:20px">'+
+                    '<div class="form-style">' +
+                        '<h3>Login now</h3>' +
+                        '<form action="<?php echo site_url('/register?do=true'); ?>" method="post" id="cf">' +
+                            '<div class="row">' +
+                                '<div class="col-sm-12 col-xs-12">' +
+                                '<input type="text" placeholder="Name" id="fname" name="fname">' +
+                                '</div>' +
+                                '<div class="col-sm-12 col-xs-12">' +
+                                '<input type="text" placeholder="Subject" id="subject" name="subject">' +
+                                '</div>' +
+                                '<div class="col-xs-12 quote-wrap">'+
+                                '<a>sdsdsd</a>'+
+                                /*'<button id="submit" class="loginbtn" name="submit">Login</button>'+*/
+                                '</div>'+
+                            '</div>' +
+                        '</form>' +
+                    '</div>' +
+                '</div>'
+
+        });
+    }
+</script>
     </body>
 </html>

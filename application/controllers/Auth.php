@@ -62,7 +62,7 @@ class Auth extends MY_Controller {
                         $this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
 
                         /* Load Template */
-                        $this->template->auth_render('auth/choice', $this->data);
+                        redirect('admin/dashboard', 'refresh');
                     }
                 }
                 else
@@ -91,8 +91,9 @@ class Auth extends MY_Controller {
                     'placeholder' => lang('auth_your_password')
                 );
 
+                $this->load->view('admin/login', $this->data);
                 /* Load Template */
-                $this->template->auth_render('auth/login', $this->data);
+                //$this->template->auth_render('auth/login', $this->data);
             }
         }
         else

@@ -21,7 +21,12 @@ $lang['menu_search'] = 'Search';
 
 
 /* * */$lang['menu_administration']             = 'Administration';
+/* ****** */$lang['menu_borrowers']             = 'Borrowers';
+/* ****** */$lang['menu_investers']             = 'Investers';
 /* ****** */$lang['menu_users']                 = 'Users';
+/* ****** */$lang['menu_loans']                 = 'Loans';
+/* ****** */$lang['menu_menus']                 = 'Menus';
+/* ****** */$lang['menu_messages']              = 'Messages';
 /* *********** */$lang['menu_users_profile']    = 'Profile';
 /* *********** */$lang['menu_users_deactivate'] = 'Deactivate';
 /* *********** */$lang['menu_users_create']     = 'Create';
