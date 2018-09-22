@@ -6,6 +6,7 @@ class Home extends Public_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->data['parent_menu'] = 'userhome';
     }
 
 
