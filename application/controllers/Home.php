@@ -11,6 +11,8 @@ class Home extends Public_Controller {
 
 	public function index()
 	{
-		$this->load->view('public/home', $this->data);
+
+        $this->template->auth_render('public/home', $this->data);
+		//$this->load->view('public/home', $this->data);
 	}
 }
