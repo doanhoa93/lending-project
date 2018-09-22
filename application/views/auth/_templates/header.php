@@ -156,9 +156,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li class="<?php echo ($parent_menu == 'userhome')? 'active' : '' ?>">
                                     <a href="<?php echo site_url('/'); ?>">Home</a>
                                 </li>
-                                <li><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                                <li><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                                <li><a href="#">Borrow <i class="fa fa-angle-down"></i></a>
+                                <li class="<?php echo ($parent_menu == 'about')? 'active' : '' ?>"><a href="<?php echo site_url('/about'); ?>">About</a></li>
+                                <li class="<?php echo ($parent_menu == 'contact')? 'active' : '' ?>"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
+                                <li class="<?php echo ($parent_menu == 'userhome')? 'active' : '' ?>"><a href="#">Borrow <i class="fa fa-angle-down"></i></a>
                                     <ul class="submenu">
                                         <li><a href="blog.html">Blog page</a></li>
                                         <li><a href="blog2.html">Blog Two column</a></li>
