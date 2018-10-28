@@ -52,14 +52,13 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 <div class="faq-form form-style">
-                    <div class="cf-msg"></div>
-                    <form action="mail.php" method="post" id="cf">
+                    <div class="cf-msg">dsdsd</div>
+                    <form action="<?php echo site_url('register'); ?>" method="post" id="cf">
                         <div class="row">
                             <div class="col-xs-12">
                                 <span>Name</span>
@@ -67,18 +66,18 @@
                             </div>
                             <div class="col-xs-12">
                                 <span>Email</span>
-                                <input type="text" placeholder="Email" id="email" name="email">
+                                <input type="text" placeholder="Email" id="email1" name="email1" value="<?php echo $email1;?>">
                             </div>
                             <div class="col-xs-12">
-                                <span>Subject</span>
-                                <input type="text" placeholder="Subject" id="subject" name="subject">
+                                <span>Password</span>
+                                <input type="password" placeholder="Password" id="password" name="password">
                             </div>
                             <div class="col-xs-12">
-                                <span>Your Questions</span>
-                                <textarea class="contact-textarea" placeholder="Questions" id="msg" name="msg"></textarea>
+                                <span>Re-Password</span>
+                                <input type="password" placeholder="Re-Password" id="repassword" name="repassword">
                             </div>
                             <div class="col-xs-12">
-                                <button id="submit" class="cont-submit btn-contact btn-style" name="submit">Questions</button>
+                                <button type="submit" class="cont-submit btn-contact btn-style" >Questions</button>
                             </div>
                         </div>
                     </form>

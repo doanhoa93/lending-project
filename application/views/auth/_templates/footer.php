@@ -104,17 +104,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             html:'<div class="contact-area" style="margin:20px">'+
                     '<div class="form-style">' +
                         '<h3>Login now</h3>' +
-                        '<form action="<?php echo site_url('/register?do=true'); ?>" method="post" id="cf">' +
+                        '<form action="<?php echo site_url('home/login'); ?>" method="post" id="cf">' +
                             '<div class="row">' +
                                 '<div class="col-sm-12 col-xs-12">' +
-                                '<input type="text" placeholder="Name" id="fname" name="fname">' +
+                                '<input type="email" name="identity" value="" id="identity" class="form-control" placeholder="Your email">' +
                                 '</div>' +
                                 '<div class="col-sm-12 col-xs-12">' +
-                                '<input type="text" placeholder="Subject" id="subject" name="subject">' +
+                                '<input type="password" name="password" value="" id="password" class="form-control" placeholder="Your password">' +
                                 '</div>' +
                                 '<div class="col-xs-12 quote-wrap">'+
-                                '<a>sdsdsd</a>'+
-                                /*'<button id="submit" class="loginbtn" name="submit">Login</button>'+*/
+                                '<input type="submit" name="submit" value="Login" class="btn btn-primary btn-block btn-flat">' +
                                 '</div>'+
                             '</div>' +
                         '</form>' +

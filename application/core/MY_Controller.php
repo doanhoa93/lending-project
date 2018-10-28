@@ -17,7 +17,7 @@ class MY_Controller extends CI_Controller
         $this->load->library(array('session','form_validation','pagination', 'ion_auth','general', 'template', 'common/mobile_detect'));
         $this->load->helper(array('array', 'language', 'url'));
         $this->load->model('common/prefs_model');
-
+        $this->load->model('admin/menu_model');
         /* Data */
         $this->data['title']       = $this->config->item('title');
         $this->data['lang']           = element($this->config->item('language'), $this->config->item('language_abbr'));
@@ -144,15 +144,28 @@ class Public_Controller extends MY_Controller
 {
 	public function __construct()
 	{
-		parent::__construct();
+        parent::__construct();
+        $this->data['main_menus'] = '';
+        if(count($this->menu_model->findActive()) > 0){
+            $this->data['main_menus'] = $this->general->bootstrap_menu($this->menu_model->findActive());
+        }
 
-        if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+
+        if ($this->ion_auth->logged_in())
         {
-            $this->data['admin_link'] = TRUE;
+            if($this->ion_auth->is_admin()){
+                $this->data['admin_link'] = TRUE;
+                $this->data['user_link'] = FALSE;
+            }else{
+                $this->data['user_link'] = TRUE;
+                $this->data['admin_link'] = FALSE;
+            }
+            $this->data['user_login']  = $this->prefs_model->user_info_login($this->ion_auth->user()->row()->id);
         }
         else
         {
             $this->data['admin_link'] = FALSE;
+            $this->data['user_link'] = FALSE;
         }
 
         if ($this->ion_auth->logged_in())

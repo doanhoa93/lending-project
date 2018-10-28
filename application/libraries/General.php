@@ -72,7 +72,7 @@ class General {
 
     
     function isExistNextMenu($position) {
-        $this->CI->load->model('Menu');
+        $this->CI->load->model('MenuModel');
         $slide = $this->CI->Menu->getNextMenu($position);
         if (!empty($slide)) {
             return TRUE;
@@ -82,7 +82,7 @@ class General {
     }
 
     function isExistPrevMenu($position) {
-        $this->CI->load->model('Menu');
+        $this->CI->load->model('MenuModel');
         $slide = $this->CI->Menu->getPrevMenu($position);
         if (!empty($slide)) {
             return TRUE;
@@ -163,44 +163,7 @@ class General {
         return $menu_html;
     }
 
-
-    function bootstrap_menu($array,$parent_id = 0,$parents = array())
-    {
-        if($parent_id==0)
-        {
-            foreach ($array as $element) {
-                if (($element['parent_id'] != 0) && !in_array($element['parent_id'],$parents)) {
-                    $parents[] = $element['parent_id'];
-                }
-            }
-        }
-        $menu_html = '';
-        foreach($array as $element)
-        {
-            if($element['parent_id']==$parent_id)
-            {
-                if(in_array($element['id'],$parents))
-                {
-                    $menu_html .= '<li class="dropdown">';
-                    $menu_html .= '<a href="'.site_url($element['url']).'" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">'.$element['name'].' <span class="caret"></span></a>';
-                }
-                else {
-                    $menu_html .= '<li>';
-                    $menu_html .= '<a href="' . site_url($element['url']) . '">' . $element['name'] . '</a>';
-                }
-                if(in_array($element['id'],$parents))
-                {
-                    $menu_html .= '<ul class="dropdown-menu" role="menu">';
-                    $menu_html .= $this->bootstrap_menu($array, $element['id'], $parents);
-                    $menu_html .= '</ul>';
-                }
-                $menu_html .= '</li>';
-            }
-        }
-        return $menu_html;
-    }
-
-	function bootstrap_menu1($array,$parent_id = 0,$parents = array())
+	function bootstrap_menu($array,$parent_id = 0,$parents = array())
 	{
 		if($parent_id==0)
 		{
@@ -223,7 +186,7 @@ class General {
 					$menu_html .= '<div class="small-drop">';
 					$menu_html .= '<div class="drop-holder">';
 					$menu_html .= '<ul class="list-unstyled">';
-					$menu_html .= $this->bootstrap_menu1($array, $element['id'], $parents);
+					$menu_html .= $this->bootstrap_menu($array, $element['id'], $parents);
 					$menu_html .= '</ul>';
 					$menu_html .= '</div>';
 					$menu_html .= '</div>';
