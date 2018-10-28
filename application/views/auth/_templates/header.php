@@ -88,19 +88,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <p>Personal loans up to $40,000</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-4 col-xs-12"  ng-app="app">
-                        <div class="header-top-right text-right" ng-controller="AppCtrl as ctrl">
+                    <div class="col-md-6 col-sm-4 col-xs-12">
+                        <div class="header-top-right text-right">
                             <ul>
-                                <li><a onclick="login()" style="cursor: pointer"><i class="fa fa-user"></i> Login</a></li>
-                                <li><a href="<?php echo site_url('/register'); ?>"><i class="fa fa-user-plus"></i> Register</a></li>
+                                <?php if (!($admin_link == 1 || $user_link == 1)): ?>
+                                    <li><a onclick="login()" style="cursor: pointer"><i class="fa fa-user"></i> Login</a></li>
+                                    <li><a href="<?php echo site_url('/register'); ?>"><i class="fa fa-user-plus"></i> Register</a></li>
+                                <?php else: ?>
+                                    <div class="btn-group">
+                                        <span data-toggle="dropdown" style="cursor: pointer;color: white">
+                                            <?php echo $user_login['firstname'].$user_login['lastname']; ?> <span class="caret"></span>
+                                        </span>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="<?php echo site_url('/profile'); ?>" style="color: black">Profile</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="<?php echo site_url('auth/logout/user'); ?>" style="color: black">Logout</a></li>
+                                        </ul>
+                                    </div>
 
-                                <div class="example">
-                                    <!--<button id="b2">A title with a text under</button>
-                                    <button id="b3">A success message!</button>
-                                    <button id="b4">A warning message, with a function attached to the "Confirm"-button...</button>
-                                    <button id="b5">... and by passing a parameter, you can execute something else for "Cancel".</button>
-                                    <button id="b6">A message with a custom icon</button>-->
-                                </div>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -162,6 +168,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-md-11 hidden-sm hidden-xs">
                         <div class="mainmenu">
                             <ul id="navigation">
+
+                                <?php /*echo $main_menus;*/?>
+
                                 <li class="<?php echo ($parent_menu == 'userhome')? 'active' : '' ?>">
                                     <a href="<?php echo site_url('/'); ?>">Home</a>
                                 </li>

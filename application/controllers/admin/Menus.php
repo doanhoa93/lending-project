@@ -107,7 +107,7 @@ class Menus extends Admin_Controller {
             redirect('admin/menus');
         }
 
-        $this->data['menu'] = $this->Menu->findById($id);
+        $this->data['MenuModel'] = $this->Menu->findById($id);
         $this->data['menus'] = $this->Menu->findAll();
         $this->data['status'] = $this->Menu->status;
         $this->load_admin('menus/edit');

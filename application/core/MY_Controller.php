@@ -145,14 +145,24 @@ class Public_Controller extends MY_Controller
 	public function __construct()
 	{
 		parent::__construct();
+        $this->data['admin_link'] = FALSE;
+        $this->data['user_link'] = TRUE;
 
-        if ($this->ion_auth->logged_in() && $this->ion_auth->is_admin())
+        if ($this->ion_auth->logged_in())
         {
-            $this->data['admin_link'] = TRUE;
+            if($this->ion_auth->is_admin()){
+                $this->data['admin_link'] = TRUE;
+                $this->data['user_link'] = FALSE;
+            }else{
+                $this->data['user_link'] = TRUE;
+                $this->data['admin_link'] = FALSE;
+            }
+            $this->data['user_login']  = $this->prefs_model->user_info_login($this->ion_auth->user()->row()->id);
         }
         else
         {
             $this->data['admin_link'] = FALSE;
+            $this->data['user_link'] = FALSE;
         }
 
         if ($this->ion_auth->logged_in())
