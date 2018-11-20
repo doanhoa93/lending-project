@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = '';
-
+$config['upload_path'] = 'upload';
 /*
 |--------------------------------------------------------------------------
 | Index File

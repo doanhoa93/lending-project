@@ -43,6 +43,7 @@ class Prefs_model extends CI_Model {
         $data['lastname']   = ! empty($user->last_name) ? ' '.htmlspecialchars($user->last_name, ENT_QUOTES, 'UTF-8') : NULL;
         $data['company']    = htmlspecialchars($user->company, ENT_QUOTES, 'UTF-8');
         $data['phone']      = ! empty($user->phone) ? $user->phone : NULL;
+        $data['type']      = ! empty($user->type) ? $user->type : NULL;
 
         return $data;
     }

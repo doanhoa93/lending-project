@@ -23,6 +23,7 @@ class MY_Controller extends CI_Controller
         $this->data['lang']           = element($this->config->item('language'), $this->config->item('language_abbr'));
         $this->data['charset']        = $this->config->item('charset');
         $this->data['frameworks_dir'] = $this->config->item('frameworks_dir');
+        $this->data['upload_path']    = $this->config->item('upload_path');
         $this->data['plugins_dir']    = $this->config->item('plugins_dir');
         $this->data['avatar_dir']     = $this->config->item('avatar_dir');
 

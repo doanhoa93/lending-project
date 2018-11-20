@@ -92,18 +92,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="header-top-right text-right">
                             <ul>
                                 <?php if (!($admin_link == 1 || $user_link == 1)): ?>
-                                    <li><a onclick="login()" style="cursor: pointer"><i class="fa fa-user"></i> Login</a></li>
-                                    <li><a href="<?php echo site_url('/register'); ?>"><i class="fa fa-user-plus"></i> Register</a></li>
                                 <?php else: ?>
                                     <div class="btn-group">
-                                        <span data-toggle="dropdown" style="cursor: pointer;color: white">
-                                            <?php echo $user_login['firstname'].$user_login['lastname']; ?> <span class="caret"></span>
-                                        </span>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="<?php echo site_url('/profile'); ?>" style="color: black">Profile</a></li>
-                                            <li role="separator" class="divider"></li>
-                                            <li><a href="<?php echo site_url('auth/logout/user'); ?>" style="color: black">Logout</a></li>
-                                        </ul>
+                                        <li>
+                                            <span style="cursor: pointer;color: white">
+
+                                            </span>
+                                        </li>
+                                        <li><a href="<?php echo site_url('/profile'); ?>">Hi, <?php echo $user_login['firstname'].$user_login['lastname']; ?></a></li>
+                                        <li><a title="Logout" href="<?php echo site_url('auth/logout/user'); ?>" style="font-size: 20px"><i class="fa fa-sign-out"></i></a></li>
                                     </div>
 
                                 <?php endif; ?>
@@ -122,37 +119,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                     <div class="col-md-9 col-xs-12">
-                        <div class="header-middle-right">
-                            <ul>
-                                <li>
-                                    <div class="contact-icon">
-                                        <i class="fa fa-clock-o"></i>
-                                    </div>
-                                    <div class="contact-info">
-                                        <p>MON - SAT (9AM - 5PM)</p>
-                                        <span>Sunday colsed</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="contact-icon">
-                                        <i class="fa fa-envelope"></i>
-                                    </div>
-                                    <div class="contact-info">
-                                        <p>MAIL US</p>
-                                        <span>info@yourdomail.com</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="contact-icon">
-                                        <i class="fa fa-phone"></i>
-                                    </div>
-                                    <div class="contact-info">
-                                        <p>PHONE US</p>
-                                        <span> (+1) 1144-1254</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <?php if (!($admin_link == 1 || $user_link == 1)): ?>
+                            <div class="header-middle-right">
+                                <ul>
+                                    <li>
+                                        <div class="contact-icon">
+                                            <i class="fa fa-sign-in" style="font-size: 25px"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                            <a onclick="login()" style="font-size: 20px; color: white; cursor: pointer; line-height: 35px">Login</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-icon">
+                                            <i class="fa fa-user-plus" style="font-size: 25px"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                            <a href="<?php echo site_url('/register'); ?>" style="font-size: 20px; color: white; line-height: 35px">Register</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        <?php else: ?>
+                            <div class="header-middle-right">
+                                <ul>
+                                    <li>
+                                        <div class="contact-icon">
+                                            <i class="fa fa-money" style="font-size: 25px"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                            <a href="<?php echo site_url('/borrower'); ?>" style="font-size: 20px; color: white; line-height: 35px">Need a loan</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-icon">
+                                            <i class="fa fa-history" style="font-size: 25px"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                            <a href="<?php echo site_url('/borrower/listloan'); ?>" style="font-size: 20px; color: white; line-height: 35px">History of Loan</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-icon">
+                                            <i class="fa fa-users" style="font-size: 25px"></i>
+                                        </div>
+                                        <div class="contact-info">
+                                            <a href="<?php echo site_url('/profile'); ?>" style="font-size: 20px; color: white; line-height: 35px">Account</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+
                     </div>
                 </div>
             </div>
