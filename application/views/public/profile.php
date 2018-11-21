@@ -180,7 +180,18 @@
         overflow-y: scroll;
     }
 </style>
-
+<!-- breadcumb-area start -->
+<div class="breadcumb-area black-opacity bg-img-6" style="max-height: 200px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="breadcumb-wrap">
+                    <h2>User profile</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container" style="margin-bottom: 50px;margin-top: 50px ;margin-left: 80px;">
     <div class="row">
         <section class="about-area ptb-140">

@@ -93,9 +93,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/plugins.js'); ?>"></script>
 <!-- main js -->
 <script src="<?php echo base_url($frameworks_dir . '/assets/js/scripts.js'); ?>"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script>
+    function getValue(){
+        alert($("#amount").val());
+    }
+    $(function() {
+        $( "#slider-range-min" ).slider({
+            range: "min",
+            value: 50,
+            min: 0,
+            max: 100,
+            slide: function( event, ui ) {
+                $( "#amount" ).text('');
+                $( "#amount" ).append('I need to borrow ' + "$" + ui.value + ",000");
+            }
+        });
+        $( "#amount" ).append( "$" + $( "#slider-range-min" ).slider( "value") + ",000");
+    });
+</script>
 <script type="text/javascript">
     function login() {
         swal({
@@ -121,9 +138,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 '</div>'
         });
     }
-</script>
-    <script type="text/javascript">
 
-    </script>
+    $('input[name=options]').click(function(){
+        alert($(this).attr("id"));
+    });
+</script>
     </body>
 </html>

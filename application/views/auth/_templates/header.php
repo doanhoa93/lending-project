@@ -39,6 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.11.0/sweetalert2.min.css">
         <!-- modernizr css -->
+        <link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css'>
+        <link rel="stylesheet" href="<?php echo base_url($frameworks_dir . '/assets/css/radios-to-slider.css'); ?>">
         <script src="<?php echo base_url($frameworks_dir . '/assets/js/vendor/modernizr-2.8.3.min.js'); ?>"></script>
 <?php if ($mobile === FALSE): ?>
         <!--[if lt IE 9]>
