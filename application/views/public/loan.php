@@ -29,12 +29,12 @@
             <div class="col-md-8 col-xs-12">
                 <div class="faq-form form-style">
                     <div class="cf-msg"></div>
-                    <form action="mail.php" method="post" id="cf">
+                    <form action="<?php echo site_url('auth/login'); ?>" method="post" id="cf">
                         <div class="row">
                             <div class="col-xs-12">
                                 <span>Description</span>
-                                <textarea class="contact-textarea" placeholder="Questions" id="msg" name="msg"></textarea>
-                            </div>
+                                    <textarea class="contact-textarea" placeholder="Questions" id="msg" name="msg"></textarea>
+                                </div>
                             <div class="col-xs-12">
 
                                 <input type="text" placeholder="Subject" id="subject" name="subject">

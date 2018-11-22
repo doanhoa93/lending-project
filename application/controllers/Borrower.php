@@ -28,4 +28,8 @@ class Borrower extends Public_Controller {
         $this->template->auth_render('public/loan/list', $this->data);
         //$this->load->view('public/home', $this->data);
     }
+
+    public function create(){
+
+    }
 }

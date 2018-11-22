@@ -42,13 +42,13 @@
                             <div class="panel-heading" id="headingOne">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        General Inquiries
+                                        Register infomation
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p>Keep away from people who try to belittle your ambitions. Small peol always do that. Keep away from ast people who try to belittle your ambitions. Small peol always do that. Keep away from people who try to ast belittle your ambitions. Small peol always do that.</p>
+                                    <p>Sign up now to join start loan.</p>
                                 </div>
                             </div>
                         </div>
@@ -62,21 +62,39 @@
                     <form action="mail.php" method="post" id="cf">
                         <div class="row">
                             <div class="col-xs-12">
-                                <span>Name</span>
-                                <input type="text" placeholder="Name" id="fname" name="fname">
+                                <span>First name</span>
+                                <input type="text" placeholder="First name" id="fname" name="fname">
+                            </div>
+                            <div class="col-xs-12">
+                                <span>Last name</span>
+                                <input type="text" placeholder="Last name" id="lname" name="lname">
                             </div>
                             <div class="col-xs-12">
                                 <span>Email</span>
                                 <input type="text" placeholder="Email" id="email" name="email">
                             </div>
                             <div class="col-xs-12">
-                                <span>Subject</span>
-                                <input type="text" placeholder="Subject" id="subject" name="subject">
+                                <span>Phone</span>
+                                <input type="text" placeholder="Phone" id="phone" name="phone">
                             </div>
                             <div class="col-xs-12">
-                                <span>Your Questions</span>
-                                <textarea class="contact-textarea" placeholder="Questions" id="msg" name="msg"></textarea>
+                                <span>Password</span>
+                                <input type="password" placeholder="Password" id="password" name="password">
                             </div>
+                            <div class="col-xs-12">
+                                <span>Password confirm</span>
+                                <input type="password" placeholder="Password confirm" id="passwordconfirm" name="passwordconfirm">
+                            </div>
+                            <div class="col-xs-12">
+                                <span>Bạn cần:</span>
+                                <div class="col-xs-3">
+                                    <span>Vay <input type="radio" name="typeUser" style="width: 20px;height: 20px"></span>
+                                </div>
+                                <div class="col-xs-3">
+                                     <span>Cho vay <input type="radio" name="typeUser" style="width: 20px;height: 20px"></span>
+                                </div>
+                            </div>
+
                             <div class="col-xs-12">
                                 <button id="submit" class="cont-submit btn-contact btn-style" name="submit">Questions</button>
                             </div>
