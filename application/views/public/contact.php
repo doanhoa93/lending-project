@@ -7,7 +7,7 @@
  */
 ?>
 <!-- breadcumb-area start -->
-<div class="breadcumb-area black-opacity bg-img-4">
+<div class="breadcumb-area black-opacity bg-img-4" style="max-height: 200px">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -31,6 +31,7 @@
         </div>
     </div>
 </div>
+
 <!-- breadcumb-area end -->
 
 <!-- contact-area start -->

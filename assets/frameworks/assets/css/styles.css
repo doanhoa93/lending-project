@@ -1479,7 +1479,7 @@ ul{
 	width:100%;
 	height:40px;
 	padding-left:15px;
-	margin-bottom:18px;
+	margin-bottom:7px;
 	border:1px solid #999;
 }
 .form-style span{
@@ -3096,4 +3096,7 @@ h3.blog-title::after{
 	width: 100%;
 	background: #296dc1;
 	margin-top: 100px;
+}
+.error {
+    color: red;
 }
