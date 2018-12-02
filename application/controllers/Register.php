@@ -20,6 +20,7 @@ class Register extends Public_Controller
     public function index()
     {
         $tables = $this->config->item('tables', 'ion_auth');
+        $this->data['message'] = '';
         $this->template->auth_render('public/register', $this->data);
     }
 
@@ -52,11 +53,10 @@ class Register extends Public_Controller
 
         if ($this->form_validation->run() == TRUE && $this->ion_auth->register($username, $password, $email, $additional_data))
         {
-            $this->session->set_flashdata('message', $this->ion_auth->messages());
-            $this->session->set_flashdata('message',message_box('Register success.','success'));
-            redirect('register', 'refresh');
+            $this->data['message'] = message_box('Register success.','success');
+            $this->template->auth_render('public/register', $this->data);
         } else {
-            //$this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+            $this->data['message'] = message_box('Register error.','error');
             $this->data['first_name'] = array(
                 'name' => 'first_name',
                 'id' => 'first_name',

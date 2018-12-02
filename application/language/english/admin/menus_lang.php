@@ -9,3 +9,5 @@
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+$lang['menu_create_menu']         = 'Create Menu';
+$lang['menu_edit_menu']           = 'Edit Menu';

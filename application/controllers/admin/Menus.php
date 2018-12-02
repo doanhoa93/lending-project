@@ -46,26 +46,30 @@ class Menus extends Admin_Controller {
         }
     }
 
-    function add() {
+    function create() {
+        /* Breadcrumbs */
+        $this->breadcrumbs->unshift(2, lang('menu_users_create'), 'admin/users/create');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
+
+        /* Variables */
+        $tables = $this->config->item('tables', 'ion_auth');
         $this->form_validation->set_rules('name', 'name', 'required');
         $this->form_validation->set_rules('url', 'url', 'required');
         $this->form_validation->set_error_delimiters('', '<br/>');
 
+        $this->data['message'] = (validation_errors() ? validation_errors() : ($this->ion_auth->errors() ? $this->ion_auth->errors() : $this->session->flashdata('message')));
+
         if ($this->form_validation->run() == TRUE) {
             $parent_id = 0;
-			$bottom_menu = 0;
             if(!empty($this->input->post('parent_id'))){
                 $parent_id = $this->input->post('parent_id');
             }
-            if($this->input->post('bottom_menu') !== null){
-				$bottom_menu = 1;
-			}
+
             $data = array(
                 'name' => $this->input->post('name'),
                 'url' => $this->input->post('url'),
                 'parent_id' => $parent_id,
-                'status' => $this->input->post('status'),
-				'bottom_menu' => $bottom_menu
+                'status' => $this->input->post('status')
             );
             $this->Menu->create($data);
             $menu_id = $this->db->insert_id();
@@ -76,10 +80,18 @@ class Menus extends Admin_Controller {
 
         $this->data['menus'] = $this->Menu->findAll();
         $this->data['status'] = $this->Menu->status;
-        $this->load_admin('menus/add');
+        //Category status options
+        $this->data['category_status'] = array(
+            0 => 'Inactive',
+            1 => 'Active'
+        );
+        $this->template->admin_render('admin/menus/add', $this->data);
     }
 
     function edit($id = null) {
+        /* Breadcrumbs */
+        $this->breadcrumbs->unshift(2, lang('menu_users_edit'), 'admin/users/edit');
+        $this->data['breadcrumb'] = $this->breadcrumbs->show();
         if ($id == null) {
             $id = $this->input->post('id');
         }
@@ -107,10 +119,10 @@ class Menus extends Admin_Controller {
             redirect('admin/menus');
         }
 
-        $this->data['MenuModel'] = $this->Menu->findById($id);
+        $this->data['menu'] = $this->Menu->findById($id);
         $this->data['menus'] = $this->Menu->findAll();
         $this->data['status'] = $this->Menu->status;
-        $this->load_admin('menus/edit');
+        $this->template->admin_render('admin/menus/edit', $this->data);
     }
 
     function up($position = null) {

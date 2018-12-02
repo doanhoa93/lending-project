@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller
         $this->load->library(array('session','form_validation','pagination', 'ion_auth','general', 'template', 'common/mobile_detect'));
         $this->load->helper(array('array', 'language', 'url'));
         $this->load->model('common/prefs_model');
+        $this->load->model('admin/menu_model');
 
         /* Data */
         $this->data['title']       = $this->config->item('title');
@@ -148,6 +149,12 @@ class Public_Controller extends MY_Controller
 		parent::__construct();
         $this->data['admin_link'] = FALSE;
         $this->data['user_link'] = TRUE;
+
+        $this->data['main_menus'] = '';
+
+        if(count($this->menu_model->findActive()) > 0){
+            $this->data['main_menus'] = $this->general->bootstrap_menu1($this->menu_model->findActive());
+        }
 
         if ($this->ion_auth->logged_in())
         {

@@ -200,38 +200,43 @@ class General {
         return $menu_html;
     }
 
-	function bootstrap_menu1($array,$parent_id = 0,$parents = array())
-	{
-		if($parent_id==0)
-		{
-			foreach ($array as $element) {
-				if (($element['parent_id'] != 0) && !in_array($element['parent_id'],$parents)) {
-					$parents[] = $element['parent_id'];
-				}
-			}
-		}
-		$menu_html = '';
-		foreach($array as $element)
-		{
-			if($element['parent_id']==$parent_id)
-			{
-				$menu_html .= '<li>';
-				$menu_html .= '<a href="' . site_url($element['url']) . '">' . $element['name'] . '</a>';
 
-				if(in_array($element['id'],$parents))
-				{
-					$menu_html .= '<div class="small-drop">';
-					$menu_html .= '<div class="drop-holder">';
-					$menu_html .= '<ul class="list-unstyled">';
-					$menu_html .= $this->bootstrap_menu1($array, $element['id'], $parents);
-					$menu_html .= '</ul>';
-					$menu_html .= '</div>';
-					$menu_html .= '</div>';
-				}
-				$menu_html .= '</li>';
-			}
-		}
-		return $menu_html;
-	}
+    function bootstrap_menu1($array,$parent_id = 0,$parents = array())
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        if($parent_id==0)
+        {
+            foreach ($array as $element) {
+                if (($element['parent_id'] != 0) && !in_array($element['parent_id'],$parents)) {
+                    $parents[] = $element['parent_id'];
+                }
+            }
+        }
+        $menu_html = '';
+        foreach($array as $element)
+        {
+            if($element['parent_id']==$parent_id)
+            {
+
+                if(in_array($element['id'],$parents))
+                {
+                    $menu_html .= '<li>';
+                    $menu_html .= '<a href="' . site_url($element['url']) . '">' . $element['name'] . '<i class="fa fa-angle-down"></i></a>';
+                    $menu_html .= '<ul class="submenu">';
+                    $menu_html .= $this->bootstrap_menu1($array, $element['id'], $parents);
+                    $menu_html .= '</ul>';
+                } else {
+                    if (strpos($url, $element['url']) !== false) {
+                        $menu_html .= '<li class="active">';
+                    } else {
+                        $menu_html .= '<li>';
+                    }
+                    $menu_html .= '<a href="' . site_url($element['url']) . '">' . $element['name'] . '</a>';
+                }
+                $menu_html .= '</li>';
+            }
+        }
+        return $menu_html;
+    }
 }
 ?>

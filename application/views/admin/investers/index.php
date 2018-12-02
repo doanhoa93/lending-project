@@ -14,9 +14,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-12">
                              <div class="box">
                                 <div class="box-header with-border">
-                                    <h3 class="box-title"><?php echo anchor('admin/investers/create', '<i class="fa fa-plus"></i> '. lang('investers_create_borrower'), array('class' => 'btn btn-block btn-primary btn-flat')); ?></h3>
+                                    <h3 class="box-title">List invester</h3>
                                 </div>
                                 <div class="box-body">
+                                    <?php echo $this->session->flashdata('message');?>
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
@@ -36,7 +37,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <td><?php echo $user['email']?></td>
                                                 <td><?php echo $user['active'] == 1 ? 'Active' : 'Inactive'?></td>
                                                 <td>
-                                                    <?php echo anchor('admin/investers/edit/'.$user['id'], lang('actions_edit')); ?> / <?php echo anchor('admin/investers/delete/'.$user['id'], lang('actions_delete')); ?>
+                                                    <a href="<?php echo site_url('admin/investers/edit/'.$user['id'])?>"><span class="badge bg-green">edit</span></a>
+                                                    <a href="<?php echo site_url('admin/investers/delete/'.$user['id'])?>" onclick="return confirm('Are you sure?')"><span class="badge bg-red">delete</span></a>
                                                 </td>
                                             </tr>
 <?php endforeach;?>

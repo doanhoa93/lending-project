@@ -32,4 +32,19 @@ class User_model extends CI_Model {
         $query = $this->db->get($this->table);
         return $query->result_array();
     }
+
+    function find_by_id($id){
+        $this->db->where('id',$id);
+        return $this->db->get($this->table,1)->row_array();
+    }
+
+    function update($user,$id){
+        $this->db->where('id',$id);
+        $this->db->update($this->table,$user);
+    }
+
+    function delete($id){
+        $this->db->where('id',$id);
+        $this->db->delete($this->table);
+    }
 }

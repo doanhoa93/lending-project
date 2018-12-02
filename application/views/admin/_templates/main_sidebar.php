@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                         <li class="header text-uppercase"><?php echo lang('menu_administration'); ?></li>
-                        <li class="treeview <?=active_link_controller('customers')?>">
+                        <li class="treeview <?=active_link_controller('borrowers')?> <?=active_link_controller('investers')?>">
                             <a href="#">
                                 <i class="fa fa-users" style="color:#FF5400"></i>
                                 <span>Customers</span>

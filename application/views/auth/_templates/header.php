@@ -188,34 +188,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-md-11 hidden-sm hidden-xs">
                         <div class="mainmenu">
                             <ul id="navigation">
-
-                                <?php /*echo $main_menus;*/?>
-
-                                <li class="<?php echo ($parent_menu == 'userhome')? 'active' : '' ?>">
+                                <li class="<?php echo ($parent_menu == 'userhome')? 'active' : ''?>">
                                     <a href="<?php echo site_url('/'); ?>">Home</a>
                                 </li>
-                                <li class="<?php echo ($parent_menu == 'about')? 'active' : '' ?>"><a href="<?php echo site_url('/about'); ?>">About</a></li>
-                                <li class="<?php echo ($parent_menu == 'contact')? 'active' : '' ?>"><a href="<?php echo site_url('/contact'); ?>">Contact</a></li>
-                                <li class="<?php echo ($parent_menu == 'borrow')? 'active' : '' ?>"><a href="#">Borrow <i class="fa fa-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="blog.html">Blog page</a></li>
-                                        <li><a href="blog2.html">Blog Two column</a></li>
-                                        <li><a href="blog-left.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right.html">Blog Right Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="blog-post.html">Blog Post </a></li>
-                                    </ul>
-                                </li>
-                                <li class="<?php echo ($parent_menu == 'invest')? 'active' : '' ?>"><a href="#">Invest <i class="fa fa-angle-down"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="blog.html">Blog page</a></li>
-                                        <li><a href="blog2.html">Blog Two column</a></li>
-                                        <li><a href="blog-left.html">Blog Left Sidebar</a></li>
-                                        <li><a href="blog-right.html">Blog Right Sidebar</a></li>
-                                        <li><a href="blog-details.html">Blog Details</a></li>
-                                        <li><a href="blog-post.html">Blog Post </a></li>
-                                    </ul>
-                                </li>
+                                <?php echo $main_menus;?>
                             </ul>
                         </div>
                     </div>

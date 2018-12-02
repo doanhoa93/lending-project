@@ -12,7 +12,7 @@ class Loan extends Public_Controller {
     {
         parent::__construct();
         $this->load->model('public/Loans');
-        $this->data['parent_menu'] = 'userhome';
+        $this->data['parent_menu'] = 'loan';
     }
 
 

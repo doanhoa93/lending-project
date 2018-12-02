@@ -64,7 +64,7 @@
                 <div class="faq-form form-style">
                     <div class="cf-msg"></div>
                     <div class="box box-primary">
-                        <?php /*echo $message;*/?>
+                        <?php echo $message;?>
                         <form action="<?php echo site_url('register/process');?>" method="post">
                             <div class="row">
                                 <div class="col-xs-12">
@@ -98,12 +98,12 @@
                                     <?php echo form_error('password_confirm', '<span class="error">', '</span>'); ?>
                                 </div>
                                 <div class="col-xs-12">
-                                    <span>Bạn cần:</span>
+                                    <span>You need:</span>
                                     <div class="col-xs-3">
-                                        <span>Vay <input type="radio" name="usertype" id="usertype" value="0" style="width: 20px;height: 20px" <?php  set_value('usertype'); ?>"></span>
+                                        <span>Borrow <input type="radio" name="usertype" id="usertype" value="0" style="width: 20px;height: 20px" <?php  set_value('usertype'); ?>"></span>
                                     </div>
                                     <div class="col-xs-3">
-                                        <span>Cho vay <input type="radio" name="usertype" id="usertype" value="1" <?php  set_value('usertype'); ?>" style="width: 20px;height: 20px"></span>
+                                        <span>Invest <input type="radio" name="usertype" id="usertype" value="1" <?php  set_value('usertype'); ?>" style="width: 20px;height: 20px"></span>
                                     </div>
                                 </div>
 
